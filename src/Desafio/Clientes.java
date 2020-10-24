@@ -1,6 +1,6 @@
 package Desafio;
 
-public class Clientes {
+public class Clientes implements Armazenavel {
 
 //----------INSTÂNCIAS--------------
 	private String name;
@@ -62,6 +62,10 @@ public class Clientes {
 				+ ", rg: " + rg;
 	}
 	
+	@Override
+	public String obterNomeArquivo() {
+		return "cliente.txt";
+	}
 	
 
 	

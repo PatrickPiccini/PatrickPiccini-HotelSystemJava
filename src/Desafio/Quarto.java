@@ -1,17 +1,12 @@
 package Desafio;
 
-import java.text.DateFormat;
-import java.util.Date;
-
-public class Quarto extends HotelSystem {
+public class Quarto extends HotelSystem implements Armazenavel{
 	
 //-------------INSTÂNCIAS---------------
-	Date date = new Date();
 	private Integer room;
 	private String reserva;
-	Cadastro cadastro;
 	OrderLuxo levelLuxo;
-	String dateStr = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(date);
+
 	
 //-----------CONTRUTORES---------------
 	
@@ -19,33 +14,15 @@ public class Quarto extends HotelSystem {
 		
 	}
 	
-	public Quarto(Integer number, OrderLuxo levelLuxo, Cadastro cadastro ) {
+	public Quarto(OrderLuxo levelLuxo, String agoraFormatado) {
 	
 		this.levelLuxo = levelLuxo;
-		this.reserva = dateStr;
-		this.cadastro = cadastro;
+		this.reserva = agoraFormatado;
+		
 	}
-
 
 //-------------GETERS E SETTERS-------------	
 
-	public OrderLuxo getLevelLuxo() {
-		return levelLuxo;
-	}
-
-	public void setLevelLuxo(OrderLuxo levelLuxo) {
-		this.levelLuxo = levelLuxo;
-	}
-
-	public String getReserva() {
-		return dateStr;
-	}
-
-	public void setReserva(String reserva) {
-		this.reserva = dateStr;
-	}
-
-	
 	public Integer getRoom() {
 		return room;
 	}
@@ -54,24 +31,27 @@ public class Quarto extends HotelSystem {
 		this.room = room;
 	}
 
+	public String getReserva() {
+		return reserva;
+	}
+
+	public void setReserva(String reserva) {
+		this.reserva = reserva;
+	}
+
 	@Override
 	public String toString() {
 		return "Quarto number: " + room 
 				+ ", levelLuxo: " + levelLuxo 
-				+ ", reserva: " + reserva
-				+ ", dados do cleinte: " + cadastro;
+				+ ", reserva: " + reserva;
 	}
 
-
-	
-	
-	
-	
-	
-	
+	@Override
+	public String obterNomeArquivo() {
+		return "quarto.txt";
+	}
 	
 
-	
 	
 	
 }

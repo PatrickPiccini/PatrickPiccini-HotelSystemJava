@@ -11,7 +11,7 @@ public class Sistema {
 		Scanner sc = new Scanner(System.in);
 		
 		HotelSystem[] vect = new HotelSystem[10];
-		int room;
+		
 
 //------DADOS DO CLIENTE------
 		Clientes cliente1 = new Clientes();
@@ -33,6 +33,10 @@ public class Sistema {
 		Quarto quarto1 = new Quarto();
 		System.out.println("Escolha o numero do quarto [10]");
 		quarto1.setRoom(sc.nextInt());
+		System.out.println(" Tipo do quarto: ");
+		//OrderLuxo Estyle1 = OrderLuxo.valueOf("LUXO");
+		quarto1.setReserva(quarto1.takeHour());
+		
 		
 		vect[quarto1.getRoom()] = new HotelSystem(quarto1);
 		
@@ -41,14 +45,21 @@ public class Sistema {
 		System.out.println("Buys rooms:");
 		for(int i = 0; i < 10; i++) {
 			if(vect[i] != null) {
-				System.out.println(i +": "+ vect[i]);
+				System.out.println(vect[i]);
+				ArquivosDados.gravar(vect[i], false);
+				
 				
 			}
 		}
+		System.out.println(cadastroCleinte1);
+		ArquivosDados.gravarname(cliente1, false);
 		
 		
 		
+		sc.close();
 	}
+
+
 
 
 	

@@ -1,6 +1,6 @@
 package Desafio;
 
-public class Cadastro extends HotelSystem {
+public class Cadastro extends HotelSystem implements Armazenavel{
 
 	private Integer id;
 	
@@ -30,7 +30,10 @@ public class Cadastro extends HotelSystem {
 		return "Cadastro id: " + id;
 	}
 	
-	
+	@Override
+	public String obterNomeArquivo() {
+		return "cadastro.txt";
+	}
 	
 	
 	
