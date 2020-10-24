@@ -1,6 +1,10 @@
-package Desafio;
+package Entities;
+
+import BancoDeDados.Armazenavel;
 
 public class Cadastro extends HotelSystem implements Armazenavel{
+	
+//-----------ATRIBUTOS----------------
 
 	private Integer id;
 	
@@ -27,7 +31,8 @@ public class Cadastro extends HotelSystem implements Armazenavel{
 
 	@Override
 	public String toString() {
-		return "Cadastro id: " + id;
+		return "Cadastro id: " + id + ", " +clientes.toString() ;
+			
 	}
 	
 	@Override

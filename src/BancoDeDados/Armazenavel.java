@@ -1,4 +1,4 @@
-package Desafio;
+package BancoDeDados;
 
 public interface Armazenavel {
 

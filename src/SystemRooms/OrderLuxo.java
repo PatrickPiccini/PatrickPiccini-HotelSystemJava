@@ -1,4 +1,4 @@
-package Desafio;
+package SystemRooms;
 
 public enum OrderLuxo {
 
@@ -6,5 +6,5 @@ public enum OrderLuxo {
 	INTERMEDIARIO,
 	LUXO,
 	EXECUTIVO;
-	
+
 }

@@ -1,11 +1,13 @@
-package Desafio;
+package Entities;
+
+import BancoDeDados.Armazenavel;
 
 public class Clientes implements Armazenavel {
 
 //----------INSTÂNCIAS--------------
 	private String name;
 	private String email;
-	private Integer cpf;
+	private Long cpf;
 	private Integer rg;
 	
 //----------CONTRUTORES---------------	
@@ -14,7 +16,7 @@ public class Clientes implements Armazenavel {
 		
 	}
 	
-	public Clientes(String name, String email, Integer cpf, Integer rg) {
+	public Clientes(String name, String email, Long cpf, Integer rg) {
 		this.name = name;
 		this.email = email;
 		this.cpf = cpf;
@@ -38,11 +40,11 @@ public class Clientes implements Armazenavel {
 		this.email = email;
 	}
 
-	public Integer getCpf() {
+	public Long getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(Integer cpf) {
+	public void setCpf(Long cpf) {
 		this.cpf = cpf;
 	}
 
@@ -56,7 +58,7 @@ public class Clientes implements Armazenavel {
 
 	@Override
 	public String toString() {
-		return "Clientes name: " + name 
+		return "nome do cliente: " + name 
 				+ ", email: " + email 
 				+ ", cpf: " + cpf 
 				+ ", rg: " + rg;

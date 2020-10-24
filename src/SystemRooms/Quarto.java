@@ -1,11 +1,17 @@
-package Desafio;
+package SystemRooms;
+
+import BancoDeDados.Armazenavel;
+import Entities.HotelSystem;
+
 
 public class Quarto extends HotelSystem implements Armazenavel{
 	
-//-------------INSTÂNCIAS---------------
+//-------------ATRIBUTOS---------------
+	
 	private Integer room;
 	private String reserva;
-	OrderLuxo levelLuxo;
+	public OrderLuxo levelLuxo;
+	Cadastro cadastro;
 
 	
 //-----------CONTRUTORES---------------
@@ -43,7 +49,7 @@ public class Quarto extends HotelSystem implements Armazenavel{
 	public String toString() {
 		return "Quarto number: " + room 
 				+ ", levelLuxo: " + levelLuxo 
-				+ ", reserva: " + reserva;
+				+ ", reservado: " + reserva;
 	}
 
 	@Override

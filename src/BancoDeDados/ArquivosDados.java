@@ -1,4 +1,4 @@
-package Desafio;
+package BancoDeDados;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,38 +9,28 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
 public class ArquivosDados {
 
+//-----------ATRIBUTOS----------------
 	
 	private static String arquivo= "Banco_de_dados.txt";
 	static String caminhoAbsoluto = System.getProperty("user.home") + File.separator + arquivo;
 	
-//-------------GRAVA UM VETOR--------------
-	public static void gravar(HotelSystem vect, Boolean sobrescrever) {
-		try(FileWriter fw = new FileWriter(caminhoAbsoluto, false);
-				BufferedWriter bf = new BufferedWriter(fw);
-				PrintWriter out = new PrintWriter(bf)){
-			
-			out.println(vect.toString());
-			
-		}catch(IOException e) {
-			e.printStackTrace(); }
-	}
-	
-	
-//----------GRAVA A STRING-----------------
-	
-	public static void gravarname(Clientes cliente1, boolean b) {
+//----------GRAVA O CLIENTE-----------------
+
+	public static void gravatest(Armazenavel obj, Boolean sobrescrever) {
 		try(FileWriter fw = new FileWriter(caminhoAbsoluto, true);
 				BufferedWriter bf = new BufferedWriter(fw);
 				PrintWriter out = new PrintWriter(bf)){
-			
-			out.println(cliente1.toString());
+			out.println("------------------------------------------");
+			out.println(obj.toString());
 			
 		}catch(IOException e) {
 			e.printStackTrace(); }
 		
-	}
+	}	
+	
 //----------LE O BACO DE DADOS-----------------	
 	public static void ler(String arquivo) {
 		String caminhoAbsoluto = obterCaminhoAbsoluto(arquivo);
