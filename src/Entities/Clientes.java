@@ -4,11 +4,12 @@ import BancoDeDados.Armazenavel;
 
 public class Clientes implements Armazenavel {
 
-//----------INSTÂNCIAS--------------
+//----------ATRIBUTOS--------------
 	private String name;
 	private String email;
-	private Long cpf;
+	private String cpf;
 	private Integer rg;
+	
 	
 //----------CONTRUTORES---------------	
 	
@@ -16,7 +17,7 @@ public class Clientes implements Armazenavel {
 		
 	}
 	
-	public Clientes(String name, String email, Long cpf, Integer rg) {
+	public Clientes(String name, String email, String cpf, Integer rg) {
 		this.name = name;
 		this.email = email;
 		this.cpf = cpf;
@@ -40,11 +41,11 @@ public class Clientes implements Armazenavel {
 		this.email = email;
 	}
 
-	public Long getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(Long cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 

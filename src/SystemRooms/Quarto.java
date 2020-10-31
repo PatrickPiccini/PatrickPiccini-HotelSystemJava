@@ -11,8 +11,8 @@ public class Quarto extends HotelSystem implements Armazenavel{
 	private Integer room;
 	private String reserva;
 	public OrderLuxo levelLuxo;
-	Cadastro cadastro;
-
+	private String reservaPara;
+	private String reservaAte;
 	
 //-----------CONTRUTORES---------------
 	
@@ -40,23 +40,46 @@ public class Quarto extends HotelSystem implements Armazenavel{
 	public String getReserva() {
 		return reserva;
 	}
-
+	
 	public void setReserva(String reserva) {
 		this.reserva = reserva;
 	}
+
+	public String getReservaPara() {
+		return reservaPara;
+	}
+
+	public void setReservaPara(String reservaPara) {
+		this.reservaPara = reservaPara;
+	}
+
+	public String getReservaAte() {
+		return reservaAte;
+	}
+
+	public void setReservaAte(String reservaAte) {
+		this.reservaAte = reservaAte;
+	}
+
+
+//------------------METODOS---------------
 
 	@Override
 	public String toString() {
 		return "Quarto number: " + room 
 				+ ", levelLuxo: " + levelLuxo 
-				+ ", reservado: " + reserva;
+				+ ", Horario da reserva: " + reserva
+				+ ", CheckIn: " + reservaPara
+				+ ", CheckOut: " + reservaAte;
+				
 	}
 
 	@Override
 	public String obterNomeArquivo() {
 		return "quarto.txt";
 	}
-	
+
+
 
 	
 	

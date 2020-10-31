@@ -6,7 +6,7 @@ public class Cadastro extends HotelSystem implements Armazenavel{
 	
 //-----------ATRIBUTOS----------------
 
-	private Integer id;
+	private Integer id = 0;
 	
 //-----------CONTRUTORES---------------
 	
@@ -40,6 +40,9 @@ public class Cadastro extends HotelSystem implements Armazenavel{
 		return "cadastro.txt";
 	}
 	
+	public Integer idGeneration() {
+		return this.id += 1;
+	}
 	
 	
 }
