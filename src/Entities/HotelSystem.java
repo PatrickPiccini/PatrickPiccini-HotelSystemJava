@@ -1,11 +1,8 @@
 package Entities;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-
 import BancoDeDados.Armazenavel;
 import SystemRooms.Quarto;
 
@@ -35,15 +32,6 @@ public class HotelSystem implements Armazenavel {
 		String agoraFormatado = now.format(formatter);
 		return agoraFormatado;
 	}
-	
-	
-	public Date reserved(String date) throws ParseException {
-		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
-		Date dataFormatada = sdf1.parse(date);
-		
-		return dataFormatada;
-	}
-
 	
 	public void typeRoom() {
 		System.out.println("\nTipos dos Quartos");

@@ -5,7 +5,6 @@ import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 import BancoDeDados.ArquivosDados;
-import Entities.Cadastro;
 import Entities.Clientes;
 import Entities.Cpf;
 import Entities.HotelSystem;
@@ -22,10 +21,13 @@ public class Sistema {
 		Cpf validacaoCpf = new Cpf();
 		validarEmail validaremail = new validarEmail();
 		HotelSystem[] vect = new HotelSystem[10];
+		int senha = 0;
 		
+			
 		try {
 //--------------DADOS DO CLIENTE--------------
 		Clientes cliente1 = new Clientes();
+		
 		
 		System.out.println("Nome do Cliente: ");
 		cliente1.setName(sc.next());
@@ -51,11 +53,10 @@ public class Sistema {
 		System.out.println("RG: ");
 		cliente1.setRg(sc.nextInt());
 		
-//---------------CADASTRO DO CLIENTE------------	
-		Cadastro cadastroCleinte1 = new Cadastro();
-		cadastroCleinte1.clientes = cliente1;
-		cadastroCleinte1.setId(cadastroCleinte1.idGeneration());
+//---------------CADASTRO DE SENHA DO CLIENTE------------	
+		cliente1.setId(senha + 1);
 		
+
 //--------------SELEÇÃO DO QUARTO-------------
 		Quarto quarto1 = new Quarto();
 		quarto1.typeRoom();
@@ -68,13 +69,19 @@ public class Sistema {
 		
 		vect[quarto1.getRoom()] = new HotelSystem(quarto1);
 		
+		
+//---------------DATA DE RESERVA-------------------
 		System.out.print("Reservado para dia: ");
 		quarto1.setReservaPara(sc.next());
 		System.out.print("Até dia: ");
 		quarto1.setReservaAte(sc.next());
+		quarto1.diferencaDeData();
+		System.out.println(	quarto1.diferencaDeData());
+		
 
 		
 //------PERCORRE O VETOR PARA PRINTAR AS INFORMAÇÕES DO QUARTO-----
+		
 		System.out.println();
 		System.out.println("Buys rooms:");
 		for(int i = 0; i < 10; i++) {
@@ -83,11 +90,11 @@ public class Sistema {
 				//GRAVAÇÃO DAS INFO DO VETOR
 				ArquivosDados.gravatest(vect[i], true);
 				//GRAVAÇÃO DAS INFO DO CLIENTE
-				ArquivosDados.gravatest(cadastroCleinte1, false);
+				ArquivosDados.gravatest(cliente1, false);
 			}
 		}
 		
-		System.out.println(cadastroCleinte1);
+		System.out.println(cliente1);
 		} catch(ArrayIndexOutOfBoundsException e) {
 			System.out.println("não tem esse quarto");
 			e.printStackTrace();
@@ -96,8 +103,11 @@ public class Sistema {
 		} catch (InputMismatchException e) {
 			System.out.println("Input error");
 		} 
-		
 		sc.close();
+		
+		
 	}
+		
+	
 
 }

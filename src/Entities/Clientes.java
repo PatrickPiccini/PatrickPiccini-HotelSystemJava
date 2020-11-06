@@ -9,6 +9,7 @@ public class Clientes implements Armazenavel {
 	private String email;
 	private String cpf;
 	private Integer rg;
+	private Integer id;
 	
 	
 //----------CONTRUTORES---------------	
@@ -17,11 +18,12 @@ public class Clientes implements Armazenavel {
 		
 	}
 	
-	public Clientes(String name, String email, String cpf, Integer rg) {
+	public Clientes(String name, String email, String cpf, Integer rg, Integer id) {
 		this.name = name;
 		this.email = email;
 		this.cpf = cpf;
 		this.rg = rg;
+		this.id = id;
 	}
 
 //--------GETERS E SETTERS-----------
@@ -56,13 +58,22 @@ public class Clientes implements Armazenavel {
 	public void setRg(Integer rg) {
 		this.rg = rg;
 	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	@Override
 	public String toString() {
-		return "nome do cliente: " + name 
-				+ ", email: " + email 
-				+ ", cpf: " + cpf 
-				+ ", rg: " + rg;
+		return "Id do Cliente: " + id
+				+" Nome do Cliente: " + name 
+				+ ", Email: " + email 
+				+ ", CPF: " + cpf 
+				+ ", RG: " + rg;
 	}
 	
 	@Override
@@ -70,7 +81,11 @@ public class Clientes implements Armazenavel {
 		return "cliente.txt";
 	}
 	
-
+	public Integer idGeneration() {
+		return this.id += 1;
+	}
+	
+	
 	
 }
 	

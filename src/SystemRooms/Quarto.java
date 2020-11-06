@@ -1,5 +1,8 @@
 package SystemRooms;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import BancoDeDados.Armazenavel;
 import Entities.HotelSystem;
 
@@ -13,6 +16,7 @@ public class Quarto extends HotelSystem implements Armazenavel{
 	public OrderLuxo levelLuxo;
 	private String reservaPara;
 	private String reservaAte;
+	private Integer formatPeriodo;
 	
 //-----------CONTRUTORES---------------
 	
@@ -68,9 +72,10 @@ public class Quarto extends HotelSystem implements Armazenavel{
 	public String toString() {
 		return "Quarto number: " + room 
 				+ ", levelLuxo: " + levelLuxo 
-				+ ", Horario da reserva: " + reserva
-				+ ", CheckIn: " + reservaPara
-				+ ", CheckOut: " + reservaAte;
+				+ "\nCheckIn: " + reservaPara
+				+ "\nCheckOut: " + reservaAte
+				+ "\nTempo Reservado: " + formatPeriodo+ " dias"
+				+ "\nHorario da reserva: " + reserva;
 				
 	}
 
@@ -79,7 +84,17 @@ public class Quarto extends HotelSystem implements Armazenavel{
 		return "quarto.txt";
 	}
 
+	public Integer diferencaDeData() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		LocalDate checkin = LocalDate.parse(reservaPara, formatter);
+		LocalDate checkout = LocalDate.parse(reservaAte, formatter);
 
+				
+		Period periodo = Period.between(checkin, checkout);
+		formatPeriodo = periodo.getDays();
+		return formatPeriodo;
+	}
+	
 
 	
 	
