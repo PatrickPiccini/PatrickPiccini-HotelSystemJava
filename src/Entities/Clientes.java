@@ -1,6 +1,6 @@
 package Entities;
 
-import BancoDeDados.Armazenavel;
+import BancoDeDadosTxt.Armazenavel;
 
 public class Clientes implements Armazenavel {
 
@@ -9,7 +9,6 @@ public class Clientes implements Armazenavel {
 	private String email;
 	private String cpf;
 	private Integer rg;
-	private Integer id;
 	
 	
 //----------CONTRUTORES---------------	
@@ -18,12 +17,12 @@ public class Clientes implements Armazenavel {
 		
 	}
 	
-	public Clientes(String name, String email, String cpf, Integer rg, Integer id) {
+	public Clientes(String name, String email, String cpf, Integer rg) {
 		this.name = name;
 		this.email = email;
 		this.cpf = cpf;
 		this.rg = rg;
-		this.id = id;
+		
 	}
 
 //--------GETERS E SETTERS-----------
@@ -59,33 +58,20 @@ public class Clientes implements Armazenavel {
 		this.rg = rg;
 	}
 	
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	@Override
 	public String toString() {
-		return "Id do Cliente: " + id
-				+" Nome do Cliente: " + name 
+		return"Nome do Cliente: " + name 
 				+ ", Email: " + email 
 				+ ", CPF: " + cpf 
 				+ ", RG: " + rg;
 	}
-	
+
 	@Override
 	public String obterNomeArquivo() {
 		return "cliente.txt";
 	}
-	
-	public Integer idGeneration() {
-		return this.id += 1;
-	}
-	
-	
+		
 	
 }
 	

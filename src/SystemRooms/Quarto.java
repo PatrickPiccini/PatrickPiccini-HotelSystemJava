@@ -3,7 +3,9 @@ package SystemRooms;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import BancoDeDados.Armazenavel;
+import java.time.format.DateTimeParseException;
+
+import BancoDeDadosTxt.Armazenavel;
 import Entities.HotelSystem;
 
 
@@ -16,7 +18,9 @@ public class Quarto extends HotelSystem implements Armazenavel{
 	public OrderLuxo levelLuxo;
 	private String reservaPara;
 	private String reservaAte;
-	private Integer formatPeriodo;
+	private Integer formatday;
+	private Integer formatmonth;
+
 	
 //-----------CONTRUTORES---------------
 	
@@ -74,7 +78,7 @@ public class Quarto extends HotelSystem implements Armazenavel{
 				+ ", levelLuxo: " + levelLuxo 
 				+ "\nCheckIn: " + reservaPara
 				+ "\nCheckOut: " + reservaAte
-				+ "\nTempo Reservado: " + formatPeriodo+ " dias"
+				+ "\nTempo Reservado: " + formatday+ " Dias e " + formatmonth + " Meses"
 				+ "\nHorario da reserva: " + reserva;
 				
 	}
@@ -84,18 +88,37 @@ public class Quarto extends HotelSystem implements Armazenavel{
 		return "quarto.txt";
 	}
 
+	//excessão de data do checkout menos que o checkin
+	//colocar mensagem para reservas a cima de 30 dias
 	public Integer diferencaDeData() {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate checkin = LocalDate.parse(reservaPara, formatter);
 		LocalDate checkout = LocalDate.parse(reservaAte, formatter);
-
+		
+		Boolean dataMenor = checkout.isBefore(checkin);
+		Boolean dataIgual = checkin.isEqual(checkout);
+		
+		if(dataIgual == true) {
+				return 99;
+			
+		}else if(dataMenor == false) {
+			try {	
+				Period periodo = checkin.until(checkout);
 				
-		Period periodo = Period.between(checkin, checkout);
-		formatPeriodo = periodo.getDays();
-		return formatPeriodo;
-	}
+				
+				formatday = periodo.getDays();
+				formatmonth = periodo.getMonths();
+				return formatday + formatmonth;
+				
+				}catch(DateTimeParseException e){
+					return null;
+				}
+		}else {
+			return 99;
+		}
+		
 	
-
+	}
 	
 	
 }

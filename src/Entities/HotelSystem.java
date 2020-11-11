@@ -3,7 +3,8 @@ package Entities;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import BancoDeDados.Armazenavel;
+
+import BancoDeDadosTxt.Armazenavel;
 import SystemRooms.Quarto;
 
 
@@ -41,6 +42,14 @@ public class HotelSystem implements Armazenavel {
 		System.out.println("EXECUTIVO  \n");
 	}
 	
+	public void boasVindas() {
+		System.out.println("------------Bem Vindo ao sistema do Hotel----------");
+		System.out.println("Qual operação deseja fazer?");
+		System.out.println(" 1 | Verificar reservas");
+		System.out.println(" 2 | Reservar um quarto");
+		System.out.println(" 3 | apagar todas as reservas");
+		System.out.println(" 4 | Sair");
+	}
 
 	@Override
 	public String toString() {
