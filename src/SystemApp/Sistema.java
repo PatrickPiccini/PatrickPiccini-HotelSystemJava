@@ -1,18 +1,24 @@
 package SystemApp;
 
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import BancoDeDadosTxt.ArquivosDados;
+import BancoSQLite.*;
 import Entities.Clientes;
 import Entities.Cpf;
 import Entities.HotelSystem;
 import Entities.validarEmail;
 import SystemRooms.OrderLuxo;
 import SystemRooms.Quarto;
+
 
 public class Sistema {
 
@@ -25,6 +31,12 @@ public class Sistema {
 		Cpf validacaoCpf = new Cpf();
 		validarEmail validaremail = new validarEmail();
 		HotelSystem[] vect = new HotelSystem[10];
+		
+		 ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
+	     CriarBancoSQLite criarBancoSQLite = new CriarBancoSQLite(conexaoSQLite);
+
+	     criarBancoSQLite.criarTabelaPessoa();
+		
 		Quarto adm = new Quarto();
 		
 		
@@ -112,7 +124,63 @@ public class Sistema {
 				ArquivosDados.gravatest(vect[i], true);
 			}
 		}
+
+//-----------CONEXÃO COM BANCO SQLITE----------------
+
+		conexaoSQLite.conectar();
+		
+		String sqlInsert = "INSERT INT tbl_cliente ("
+				+ "id,"
+				+ "Nome, "
+				+ "Email,"
+				+ "Cpf, "
+				+ "Rg, "
+				+ "quarto, "
+				+ "checkIn, "
+				+ "checkOut,"
+				+ "TempoReservado "
+				+ ") VALUES(?,?,?,?,?,?,?,?)"
+				+ ";";
+		
+		PreparedStatement preparedStatement = conexaoSQLite.criarPreparedStatement(sqlInsert);
+		
+			try {
+				preparedStatement.setInt(1, 1);
+				preparedStatement.setString(2, cliente.getName());
+				preparedStatement.setString(3, cliente.getEmail());
+				preparedStatement.setString(4, cliente.getCpf());
+				preparedStatement.setInt(5, cliente.getRg());
+				preparedStatement.setInt(6, quarto.getRoom());
+				preparedStatement.setString(7, quarto.getReservaPara());
+				preparedStatement.setString(8, quarto.getReservaAte());
+				preparedStatement.setString(9, quarto.getReserva());
+				
+				int resultado = preparedStatement.executeUpdate();
+				
+				if(resultado == 1) {
+					System.out.println("cliente inserido no banco");
+				}else {
+					System.out.println("Deu ruin no banco");
+				}
+							
+			}catch(SQLException e) {
+				System.out.println("Deu ruin no banco Exception");
+			}finally {
+				if(preparedStatement != null) {
+					try {
+						preparedStatement.close();
+					} catch (SQLException e) {
+						Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, e);
+					}		
+				}
+			}
+			conexaoSQLite.desconectar();
+//-----------------------------------------------------------------
 	
+		
+		
+		
+		
 //-----------------------EXCEPTIONS--------------------------
 		
 		} catch(ArrayIndexOutOfBoundsException e) {
@@ -127,17 +195,14 @@ public class Sistema {
 		}
 		
 		
-		} else if(n == 1) {
+		} else if(n == 3) {
 			ArquivosDados.gravareset(" ", true);
-		} else if (n == 1) {
+		} else if (n == 4) {
 			System.out.println("Até logo!");
 			break;
 		}
 		
 		
-		
-		
-		sc.close();
 		//final do while
 		}	
 		
