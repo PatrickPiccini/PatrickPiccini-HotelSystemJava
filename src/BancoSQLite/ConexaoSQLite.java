@@ -80,5 +80,4 @@ public class ConexaoSQLite {
     public Connection getConexao() {
         return this.conexao;
     }
-
 }

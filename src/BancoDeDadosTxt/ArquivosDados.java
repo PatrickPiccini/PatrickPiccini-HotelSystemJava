@@ -65,22 +65,10 @@ public class ArquivosDados {
 		}
 	}
 	
-	
-	
-	
+
 	private static String obterCaminhoAbsoluto(String arquivo) {
 		
 		return System.getProperty("user.home") + File.separator + arquivo;
 	}
-
-
-
-
-
-
-
-
-
 	
 }
-

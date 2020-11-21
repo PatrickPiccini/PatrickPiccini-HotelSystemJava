@@ -79,8 +79,7 @@ public class Quarto extends HotelSystem implements Armazenavel{
 				+ "\nCheckIn: " + reservaPara
 				+ "\nCheckOut: " + reservaAte
 				+ "\nTempo Reservado: " + formatday+ " Dias e " + formatmonth + " Meses"
-				+ "\nHorario da reserva: " + reserva;
-				
+				+ "\nHorario da reserva: " + reserva;		
 	}
 
 	@Override

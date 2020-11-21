@@ -9,8 +9,7 @@ public class Clientes implements Armazenavel {
 	private String email;
 	private String cpf;
 	private Integer rg;
-	
-	
+		
 //----------CONTRUTORES---------------	
 	
 	public Clientes(){

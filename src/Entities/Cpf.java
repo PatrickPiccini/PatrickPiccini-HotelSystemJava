@@ -9,7 +9,6 @@ public class Cpf extends HotelSystem{
     public void cpf (String cpf){
         this.cpf = cpf;
     }
-
     public boolean valido(){
         if (cpf.equals("00000000000") ||
             cpf.equals("11111111111") ||

@@ -26,7 +26,6 @@ public class HotelSystem implements Armazenavel {
 	
 //------------MEOTODOS -----------]
 	
-
 	public String takeHour() {
 		LocalDateTime now = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss");

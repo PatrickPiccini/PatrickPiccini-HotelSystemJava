@@ -108,8 +108,7 @@ public class Sistema {
 		}else {
 			quarto.diferencaDeData();
 		}
-		
-		
+				
 //------PERCORRE O VETOR PARA PRINTAR AS INFORMAÇÕES DO QUARTO-----
 		
 		System.out.println();
