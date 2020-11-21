@@ -6,4 +6,5 @@ public enum OrderLuxo {
 	INTERMEDIARIO,
 	LUXO,
 	EXECUTIVO;
+	
 }

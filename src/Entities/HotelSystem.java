@@ -58,5 +58,4 @@ public class HotelSystem implements Armazenavel {
 	public String obterNomeArquivo() {
 		return "room.txt";
 	}
-	
 }

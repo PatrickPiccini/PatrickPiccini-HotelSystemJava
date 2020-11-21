@@ -70,8 +70,7 @@ public class Clientes implements Armazenavel {
 	public String obterNomeArquivo() {
 		return "cliente.txt";
 	}
-		
-	
+			
 }
 	
 	

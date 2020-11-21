@@ -20,7 +20,7 @@ public class ConexaoSQLite {
 
         try {
 
-            String url = "jdbc:sqlite:F://Arquivos de Programas (x86)//WorkSpace - Eclipse//PrograminhasSqlite/banco_sqlite.db";
+            String url = "jdbc:sqlite:F://Arquivos de Programas (x86)//WorkSpace - Eclipse//Desafio//banco_sqlite.db";
 
             this.conexao = DriverManager.getConnection(url);
 

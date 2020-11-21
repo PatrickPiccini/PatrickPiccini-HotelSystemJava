@@ -69,7 +69,6 @@ public class Quarto extends HotelSystem implements Armazenavel{
 		this.reservaAte = reservaAte;
 	}
 
-
 //------------------METODOS---------------
 
 	@Override
