@@ -86,8 +86,7 @@ public class Quarto extends HotelSystem implements Armazenavel{
 		return "quarto.txt";
 	}
 
-	//excessão de data do checkout menos que o checkin
-	//colocar mensagem para reservas a cima de 30 dias
+//-------------------DATAS DE RESERVA DO QUARTO--------------------
 	public Integer diferencaDeData() {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate checkin = LocalDate.parse(reservaPara, formatter);

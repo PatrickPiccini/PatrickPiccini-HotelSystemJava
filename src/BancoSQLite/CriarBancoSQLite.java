@@ -90,9 +90,9 @@ public class CriarBancoSQLite {
 				int resultado = preparedStatement.executeUpdate();
 				
 				if(resultado == 1) {
-					System.out.println("cliente inserido no banco");
+					System.out.println("Deu ruin no Banco");
 				}else {
-					System.out.println("Deu ruin no banco");
+					System.out.println("cliente inserido no banco");
 				}
 							
 			}catch(SQLException e) {

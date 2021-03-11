@@ -3,7 +3,7 @@ package Entities;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class validarEmail extends Clientes {
+public class validarEmail extends HotelSystem {
 	
     public Boolean isValidEmailAddressRegex(String email) {
         Boolean isEmailIdValid = false;
